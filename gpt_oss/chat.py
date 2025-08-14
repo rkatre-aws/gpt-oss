@@ -61,13 +61,13 @@ def get_user_input():
 def main(args):
     match args.backend:
         case "triton":
-            from gpt_oss.triton.model import TokenGenerator as TritonGenerator
-            from gpt_oss.torch.utils import init_distributed
+            from gpt_oss.triton_impl.model import TokenGenerator as TritonGenerator
+            from gpt_oss.torch_impl.utils import init_distributed
             device = init_distributed()
             generator = TritonGenerator(args.checkpoint, args.context, device)
         case "torch":
-            from gpt_oss.torch.model import TokenGenerator as TorchGenerator
-            from gpt_oss.torch.utils import init_distributed
+            from gpt_oss.torch_impl.model import TokenGenerator as TorchGenerator
+            from gpt_oss.torch_impl.utils import init_distributed
             device = init_distributed()
             generator = TorchGenerator(args.checkpoint, device)
         case "vllm":

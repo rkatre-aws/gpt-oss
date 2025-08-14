@@ -5,10 +5,10 @@ import os
 import torch
 from torch.profiler import record_function
 
-from gpt_oss.torch.model import ModelConfig, RMSNorm
-from gpt_oss.torch.weights import Checkpoint
-from gpt_oss.triton.attention import attention, attention_ref
-from gpt_oss.triton.moe import quantize_mx4, moe
+from gpt_oss.torch_impl.model import ModelConfig, RMSNorm
+from gpt_oss.torch_impl.weights import Checkpoint
+from gpt_oss.triton_impl.attention import attention, attention_ref
+from gpt_oss.triton_impl.moe import quantize_mx4, moe
 
 
 class RotaryEmbedding(torch.nn.Module):
